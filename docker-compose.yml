@@ -7,4 +7,4 @@ services:
     volumes:
       - ./src:/usr/local/apache2/htdocs/
     ports:
-      - 8080:80
+      - 80:80
