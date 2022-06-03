@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    build:
+      dockerfile: Dockerfile
+    container_name: container_apache
+    volumes:
+      - ./src:/usr/local/apache2/htdocs/
+    ports:
+      - 8080:80
