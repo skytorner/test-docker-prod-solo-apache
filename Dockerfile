@@ -1,2 +1,7 @@
-FROM httpd:2.4
-COPY ./src /usr/local/apache2/htdocs/
+FROM php:8.1-apache
+COPY ./src /var/www/html/
+
+ENV APACHE_DOCUMENT_ROOT /var/www/html
+
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf
+RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
